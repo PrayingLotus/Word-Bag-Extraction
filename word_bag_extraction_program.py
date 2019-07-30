@@ -97,7 +97,6 @@ class PDFSelector:
         tokenized_words = preprocess(doc_content)
         
         #Determine frequency of words tokenized + lemmatized text#
-
         fdist = FreqDist(tokenized_words)
         final_list = fdist.most_common(user_input)
     
@@ -135,7 +134,8 @@ lbl1a = tk.Label(window, textvariable = file_name).grid(row = 1, column = 2)
 
 #Label asking for input to determine number of words to be displayed in the data table# (NOT IMPLEMENTED YET)
 lbl2 = tk.Label(window, text = "Number of Words: ").grid(row = 2, column = 1)
-user_input = tk.Entry(window).grid(row = 2, column = 2)
+user_input = tk.Entry(window)
+user_input.grid(row = 2, column = 2)
 
 #Calls the select_PDF method to choose a PDF for the program to read#
 button1 = ttk.Button(window, text = "Select File", command = selector.select_PDF).grid(row = 1, column = 4)
