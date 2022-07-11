@@ -16,7 +16,7 @@ from nltk.probability import FreqDist
 
 #Method that a PDF that is read into the program goes through to eliminate any unwanted words or symbols#
 def preprocess_token(text):
-    #Filters out punctuation from paragraph witch becomes tokenized to words and punctuation#
+    #Filters out punctuation from paragraph which becomes tokenized to words and punctuation#
     result1 = RegexpTokenizer(r'\w+').tokenize(text)
     
     #Makes all words lowercase#
