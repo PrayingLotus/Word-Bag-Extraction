@@ -54,15 +54,12 @@ class PDFSelector:
         #Loads in PDF into program#
         read_pdf = PyPDF2.PdfFileReader(open(self.filename, 'rb'))
     
-        #Determines number of pages in PDF file and sets the document content to 'null'#
-        number_of_pages = read_pdf.getNumPages()
+        #Sets the document content to 'null'#
         doc_content = ""
     
         #Extract text from the PDF file#
-        for i in range(number_of_pages):
-            page = read_pdf.getPage(0)
-            page_content = page.extractText()
-            doc_content += page_content
+        for i in range(read_pdf.getNumPages()):
+            doc_content += read_pdf.getPage(i).extractText()
         
         #Turns text drawn from the PDF file into data the remaining code can understand#
         tokenized_words = preprocess_token(doc_content)
@@ -88,15 +85,10 @@ window.title("Word Frequency Program")
 window.resizable(0, 0)
 
 #Code literally just to make the GUI look better#
-lblfilla = tk.Label(window, text = "   ").grid(row = 0, column = 0)
-lblfillb = tk.Label(window, text = "   ").grid(row = 0, column = 1)
-lblfillc = tk.Label(window, text = "   ").grid(row = 0, column = 2)
-lblfilld = tk.Label(window, text = "   ").grid(row = 0, column = 3)
-lblfille = tk.Label(window, text = "   ").grid(row = 0, column = 4)
-lblfillf = tk.Label(window, text = "   ").grid(row = 1, column = 0)
-lblfillg = tk.Label(window, text = "   ").grid(row = 2, column = 0)
-lblfillh = tk.Label(window, text = "   ").grid(row = 3, column = 0)
-lblfilli = tk.Label(window, text = "   ").grid(row = 4, column = 0)
+for x in range(0, 4)
+    lblfilla = tk.Label(window, text = "   ").grid(row = 0, column = x)
+for x in range(1, 4)
+    lblfillf = tk.Label(window, text = "   ").grid(row = x, column = 0)
 
 #A label on the GUI that will update with the name of the file selected after it is selected#
 lbl1 = tk.Label(window, text = "File Selected: ")
